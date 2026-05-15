@@ -2,7 +2,7 @@
   "name": "html-jsx-script",
   "displayName": "HTML JSX Script",
   "description": "Syntax highlighting and formatting for JSX inside HTML script blocks using type=\"jsx\".",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "publisher": "romerodiesan",
   "license": "MIT",
   "repository": {
@@ -27,7 +27,7 @@
     "Formatters",
     "Snippets"
   ],
-  "main": "./extension.js",
+  "main": "./src/extension.js",
   "activationEvents": [
     "onLanguage:html",
     "onLanguage:html-jsx",
@@ -183,12 +183,13 @@
     ]
   },
   "scripts": {
-    "lint": "node --check extension.js && node --check formatter.js",
+    "lint": "node --check src/extension.js && node --check src/formatter/index.js && node --check src/core/*.js && node --check src/features/commands/*.js && node --check src/features/formatting/*.js && node --check src/features/transforms/*.js",
+    "test": "node --test tests/unit/*.test.js",
     "commitlint": "commitlint --from=HEAD~1 --to=HEAD --verbose",
     "prepare": "husky",
     "package": "vsce package",
     "publish": "vsce publish",
-    "vscode:prepublish": "npm run lint"
+    "vscode:prepublish": "npm run lint && npm run test"
   },
   "dependencies": {
     "prettier": "^3.3.3"

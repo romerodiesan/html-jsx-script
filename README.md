@@ -152,3 +152,36 @@ npm run package
 ```
 
 See `CONTRIBUTING.md` for full contribution and commit policy.
+
+## Project Structure
+
+```txt
+src/
+  core/
+    constants.js
+    document.js
+    logger.js
+  features/
+    commands/
+      index.js
+    formatting/
+      providers.js
+    transforms/
+      scriptTypeTransforms.js
+  formatter/
+    index.js
+  extension.js
+
+syntaxes/
+snippets/
+samples/
+```
+
+Architecture responsibilities:
+
+- `src/extension.js`: composition root and VS Code activation lifecycle.
+- `src/core/*`: shared low-level utilities.
+- `src/features/commands/*`: user-triggered commands.
+- `src/features/formatting/*`: formatting providers.
+- `src/features/transforms/*`: pure text transformations.
+- `src/formatter/*`: Prettier integration and JSX script preservation.
