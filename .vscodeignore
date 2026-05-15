@@ -1,0 +1,12 @@
+.vscode/**
+.github/**
+test/**
+samples/**
+.git/**
+.gitignore
+.DS_Store
+*.vsix
+*.log
+npm-debug.log
+pnpm-lock.yaml
+yarn.lock

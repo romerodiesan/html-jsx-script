@@ -1,0 +1,66 @@
+{
+  "name": "HTML JSX",
+  "scopeName": "text.html.jsx",
+  "patterns": [
+    {
+      "name": "meta.embedded.block.jsx.html",
+      "begin": "(<)(script)(\\b[^>]*?)(\\btype)(\\s*=\\s*)(\"(?:jsx|text\\/jsx|text\\/babel)\"|'(?:jsx|text\\/jsx|text\\/babel)'|(?:jsx|text\\/jsx|text\\/babel))([^>]*)(>)",
+      "beginCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.script.html"
+        },
+        "3": {
+          "name": "meta.tag.attributes.html"
+        },
+        "4": {
+          "name": "entity.other.attribute-name.html"
+        },
+        "5": {
+          "name": "punctuation.separator.key-value.html"
+        },
+        "6": {
+          "name": "string.quoted.double.html"
+        },
+        "7": {
+          "name": "meta.tag.attributes.html"
+        },
+        "8": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "end": "(</)(script)(\\s*)(>)",
+      "endCaptures": {
+        "1": {
+          "name": "punctuation.definition.tag.begin.html"
+        },
+        "2": {
+          "name": "entity.name.tag.script.html"
+        },
+        "3": {
+          "name": "meta.tag.whitespace.html"
+        },
+        "4": {
+          "name": "punctuation.definition.tag.end.html"
+        }
+      },
+      "contentName": "source.js.jsx",
+      "patterns": [
+        {
+          "include": "source.js.jsx"
+        },
+        {
+          "include": "source.tsx"
+        },
+        {
+          "include": "source.js"
+        }
+      ]
+    },
+    {
+      "include": "text.html.basic"
+    }
+  ]
+}

@@ -1,0 +1,202 @@
+{
+  "name": "html-jsx-script",
+  "displayName": "HTML JSX Script",
+  "description": "Syntax highlighting and formatting for JSX inside HTML script blocks using type=\"jsx\".",
+  "version": "0.4.1",
+  "publisher": "romerodiesan",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/romerodiesan/html-jsx-script.git"
+  },
+  "bugs": {
+    "url": "https://github.com/romerodiesan/html-jsx-script/issues"
+  },
+  "homepage": "https://github.com/romerodiesan/html-jsx-script#readme",
+  "keywords": [
+    "html",
+    "jsx",
+    "react",
+    "syntax highlighting",
+    "formatter",
+    "babel",
+    "script type jsx"
+  ],
+  "categories": [
+    "Programming Languages",
+    "Formatters",
+    "Snippets"
+  ],
+  "main": "./extension.js",
+  "activationEvents": [
+    "onLanguage:html",
+    "onLanguage:html-jsx",
+    "onCommand:htmlJsxScript.formatDocument",
+    "onCommand:htmlJsxScript.insertScriptBlock",
+    "onCommand:htmlJsxScript.convertBabelToJsx",
+    "onCommand:htmlJsxScript.convertJsxToBabel",
+    "onCommand:htmlJsxScript.enableHtmlAssociation"
+  ],
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "contributes": {
+    "languages": [
+      {
+        "id": "html-jsx",
+        "aliases": [
+          "HTML JSX",
+          "html-jsx"
+        ],
+        "extensions": [
+          ".htmljsx"
+        ]
+      }
+    ],
+    "grammars": [
+      {
+        "language": "html-jsx",
+        "scopeName": "text.html.jsx",
+        "path": "./syntaxes/html-jsx.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.js.jsx": "javascriptreact",
+          "source.tsx": "typescriptreact",
+          "source.js": "javascript"
+        },
+        "tokenTypes": {
+          "source.js.jsx": "other",
+          "source.tsx": "other",
+          "meta.embedded.block.jsx.html": "other"
+        }
+      },
+      {
+        "scopeName": "html-jsx-script.injection",
+        "path": "./syntaxes/html-jsx-script.injection.json",
+        "injectTo": [
+          "text.html.basic",
+          "text.html.derivative"
+        ],
+        "embeddedLanguages": {
+          "source.js.jsx": "javascriptreact",
+          "source.tsx": "typescriptreact",
+          "source.js": "javascript",
+          "meta.embedded.block.jsx.html": "javascriptreact"
+        },
+        "tokenTypes": {
+          "source.js.jsx": "other",
+          "source.tsx": "other",
+          "meta.embedded.block.jsx.html": "other"
+        }
+      }
+    ],
+    "configurationDefaults": {
+      "[html]": {
+        "editor.defaultFormatter": "romerodiesan.html-jsx-script"
+      },
+      "[html-jsx]": {
+        "editor.defaultFormatter": "romerodiesan.html-jsx-script"
+      }
+    },
+    "configuration": {
+      "title": "HTML JSX Script",
+      "properties": {
+        "htmlJsxScript.formatter.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the built-in formatter for HTML files with JSX script blocks."
+        },
+        "htmlJsxScript.formatter.printWidth": {
+          "type": "number",
+          "default": 80,
+          "minimum": 40,
+          "maximum": 200,
+          "description": "Maximum line width used by the formatter."
+        },
+        "htmlJsxScript.formatter.singleQuote": {
+          "type": "boolean",
+          "default": false,
+          "description": "Use single quotes instead of double quotes when formatting JavaScript/JSX."
+        },
+        "htmlJsxScript.formatter.trailingComma": {
+          "type": "string",
+          "enum": [
+            "none",
+            "es5",
+            "all"
+          ],
+          "default": "es5",
+          "description": "Controls trailing commas when formatting JavaScript/JSX."
+        },
+        "htmlJsxScript.formatter.bracketSameLine": {
+          "type": "boolean",
+          "default": false,
+          "description": "Put the closing bracket of multiline JSX elements on the same line as the last prop."
+        },
+        "htmlJsxScript.formatter.htmlWhitespaceSensitivity": {
+          "type": "string",
+          "enum": [
+            "css",
+            "strict",
+            "ignore"
+          ],
+          "default": "css",
+          "description": "Controls how whitespace is handled when formatting HTML."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "htmlJsxScript.formatDocument",
+        "title": "HTML JSX Script: Format Document",
+        "category": "HTML JSX Script"
+      },
+      {
+        "command": "htmlJsxScript.insertScriptBlock",
+        "title": "HTML JSX Script: Insert JSX Script Block",
+        "category": "HTML JSX Script"
+      },
+      {
+        "command": "htmlJsxScript.convertBabelToJsx",
+        "title": "HTML JSX Script: Convert text/babel to jsx",
+        "category": "HTML JSX Script"
+      },
+      {
+        "command": "htmlJsxScript.convertJsxToBabel",
+        "title": "HTML JSX Script: Convert jsx to text/babel",
+        "category": "HTML JSX Script"
+      },
+      {
+        "command": "htmlJsxScript.enableHtmlAssociation",
+        "title": "HTML JSX Script: Enable for .html files in this Workspace",
+        "category": "HTML JSX Script"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "html",
+        "path": "./snippets/html-jsx.code-snippets"
+      },
+      {
+        "language": "html-jsx",
+        "path": "./snippets/html-jsx.code-snippets"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "node --check extension.js && node --check formatter.js",
+    "commitlint": "commitlint --from=HEAD~1 --to=HEAD --verbose",
+    "prepare": "husky",
+    "package": "vsce package",
+    "publish": "vsce publish",
+    "vscode:prepublish": "npm run lint"
+  },
+  "dependencies": {
+    "prettier": "^3.3.3"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
+    "husky": "^9.1.7",
+    "@vscode/vsce": "^3.2.1"
+  }
+}

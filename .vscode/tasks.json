@@ -1,0 +1,23 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "npm: lint",
+      "type": "npm",
+      "script": "lint",
+      "problemMatcher": []
+    },
+    {
+      "label": "npm: package",
+      "type": "npm",
+      "script": "package",
+      "problemMatcher": []
+    },
+    {
+      "label": "npm: publish",
+      "type": "npm",
+      "script": "publish",
+      "problemMatcher": []
+    }
+  ]
+}

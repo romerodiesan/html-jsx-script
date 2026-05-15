@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>HTML JSX Script Sample</title>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="jsx">
+      const Button = ({ label }) => {
+        return (
+          <button onClick={() => alert(label)}>
+            {label}
+          </button>
+        );
+      };
+
+      const App = () => (
+        <main>
+          <h1>HTML JSX Script</h1>
+          <Button label="Click me" />
+        </main>
+      );
+
+      const root = ReactDOM.createRoot(document.getElementById("root"));
+      root.render(<App />);
+    </script>
+  </body>
+</html>

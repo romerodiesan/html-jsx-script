@@ -1,0 +1,50 @@
+{
+  "JSX Script Block": {
+    "prefix": "jsxscript",
+    "body": [
+      "<script type=\"jsx\">",
+      "  ${1:const App = () => {",
+      "    return <div>${2:Hello JSX}</div>;",
+      "  };}",
+      "</script>"
+    ],
+    "description": "Insert a JSX script block"
+  },
+  "React Root Render": {
+    "prefix": "jsxroot",
+    "body": [
+      "const root = ReactDOM.createRoot(document.getElementById(\"${1:root}\"));",
+      "root.render(<${2:App} />);"
+    ],
+    "description": "Insert ReactDOM root render code"
+  },
+  "Functional JSX Component": {
+    "prefix": "jsxcomponent",
+    "body": [
+      "const ${1:Component} = (${2:props}) => {",
+      "  return (",
+      "    <div>",
+      "      ${3:Hello JSX}",
+      "    </div>",
+      "  );",
+      "};"
+    ],
+    "description": "Insert a functional JSX component"
+  },
+  "HTML React App": {
+    "prefix": "jsxapp",
+    "body": [
+      "<div id=\"${1:root}\"></div>",
+      "",
+      "<script type=\"jsx\">",
+      "  const ${2:App} = () => {",
+      "    return <h1>${3:Hello JSX}</h1>;",
+      "  };",
+      "",
+      "  const root = ReactDOM.createRoot(document.getElementById(\"${1:root}\"));",
+      "  root.render(<${2:App} />);",
+      "</script>"
+    ],
+    "description": "Insert a basic React app using a JSX script block"
+  }
+}
