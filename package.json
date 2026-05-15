@@ -30,7 +30,6 @@
   "main": "./src/extension.js",
   "activationEvents": [
     "onLanguage:html",
-    "onLanguage:html-jsx",
     "onCommand:htmlJsxScript.formatDocument",
     "onCommand:htmlJsxScript.insertScriptBlock",
     "onCommand:htmlJsxScript.convertBabelToJsx",
@@ -41,34 +40,7 @@
     "vscode": "^1.85.0"
   },
   "contributes": {
-    "languages": [
-      {
-        "id": "html-jsx",
-        "aliases": [
-          "HTML JSX",
-          "html-jsx"
-        ],
-        "extensions": [
-          ".htmljsx"
-        ]
-      }
-    ],
     "grammars": [
-      {
-        "language": "html-jsx",
-        "scopeName": "text.html.jsx",
-        "path": "./syntaxes/html-jsx.tmLanguage.json",
-        "embeddedLanguages": {
-          "source.js.jsx": "javascriptreact",
-          "source.tsx": "typescriptreact",
-          "source.js": "javascript"
-        },
-        "tokenTypes": {
-          "source.js.jsx": "other",
-          "source.tsx": "other",
-          "meta.embedded.block.jsx.html": "other"
-        }
-      },
       {
         "scopeName": "html-jsx-script.injection",
         "path": "./syntaxes/html-jsx-script.injection.json",
@@ -91,9 +63,6 @@
     ],
     "configurationDefaults": {
       "[html]": {
-        "editor.defaultFormatter": "romerodiesan.html-jsx-script"
-      },
-      "[html-jsx]": {
         "editor.defaultFormatter": "romerodiesan.html-jsx-script"
       }
     },
@@ -164,20 +133,11 @@
         "command": "htmlJsxScript.convertJsxToBabel",
         "title": "HTML JSX Script: Convert jsx to text/babel",
         "category": "HTML JSX Script"
-      },
-      {
-        "command": "htmlJsxScript.enableHtmlAssociation",
-        "title": "HTML JSX Script: Enable for .html files in this Workspace",
-        "category": "HTML JSX Script"
       }
     ],
     "snippets": [
       {
         "language": "html",
-        "path": "./snippets/html-jsx.code-snippets"
-      },
-      {
-        "language": "html-jsx",
         "path": "./snippets/html-jsx.code-snippets"
       }
     ]

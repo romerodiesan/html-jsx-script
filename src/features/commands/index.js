@@ -78,44 +78,11 @@ function registerCommands(vscode, replaceWholeDocument) {
     }
   );
 
-  const enableHtmlAssociationCommand = vscode.commands.registerCommand(
-    "htmlJsxScript.enableHtmlAssociation",
-    async () => {
-      const workspaceFolder = vscode.workspace.workspaceFolders
-        ? vscode.workspace.workspaceFolders[0]
-        : undefined;
-
-      if (!workspaceFolder) {
-        vscode.window.showWarningMessage(
-          `${MESSAGE_PREFIX} Open a workspace folder first.`
-        );
-        return;
-      }
-
-      const filesConfig = vscode.workspace.getConfiguration("files");
-      const associations = {
-        ...(filesConfig.get("associations") || {}),
-        "*.html": "html-jsx"
-      };
-
-      await filesConfig.update(
-        "associations",
-        associations,
-        vscode.ConfigurationTarget.Workspace
-      );
-
-      vscode.window.showInformationMessage(
-        `${MESSAGE_PREFIX} Workspace association updated (*.html -> html-jsx).`
-      );
-    }
-  );
-
   return [
     formatDocumentCommand,
     insertScriptBlockCommand,
     convertBabelToJsxCommand,
-    convertJsxToBabelCommand,
-    enableHtmlAssociationCommand
+    convertJsxToBabelCommand
   ];
 }
 
