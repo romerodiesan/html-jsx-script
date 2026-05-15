@@ -8,11 +8,7 @@
 
     <script type="jsx">
       const Button = ({ label }) => {
-        return (
-          <button onClick={() => alert(label)}>
-            {label}
-          </button>
-        );
+        return <button onClick={() => alert(label)}>{label}</button>;
       };
 
       const App = () => (
