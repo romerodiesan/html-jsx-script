@@ -29,9 +29,9 @@ Common types:
 Examples:
 
 ```txt
-feat(grammar): add html-jsx language grammar
-fix(injection): preserve script tag and JSX highlighting
-docs(readme): add production workflow section
+feat(grammar): support text/jsx script injection
+fix(formatter): preserve script type=jsx after formatting
+docs(readme): clarify html injection workflow
 ```
 
 ## Local checks

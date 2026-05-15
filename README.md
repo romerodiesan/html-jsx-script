@@ -112,9 +112,9 @@ This repository follows a production-oriented workflow:
 Examples:
 
 ```txt
-feat(grammar): support script type=text/jsx
-fix(injection): restore JSX highlighting inside script blocks
-docs(readme): clarify html association command
+feat(grammar): support jsx and text/jsx script types
+fix(formatter): preserve script type=jsx after formatting
+docs(readme): document html injection workflow
 ```
 
 Before publishing:
