@@ -8,7 +8,7 @@ const TEMP_MARKER_ATTRIBUTE = "data-html-jsx-script-temp";
 const TEMP_MARKER_VALUE = "1";
 
 const JSX_SCRIPT_OPEN_TAG_PATTERN =
-  /<script\b[^>]*\btype\s*=\s*(?:"(?:jsx|text\/jsx)"|'(?:jsx|text\/jsx)'|(?:jsx|text\/jsx))[^>]*>/gi;
+  /<script\b[^>]*\btype\s*=\s*(?:"jsx"|'jsx'|jsx)[^>]*>/gi;
 
 const PRETTIER_TEMP_TAG_PATTERN =
   /<script\b(?=[^>]*\bdata-html-jsx-script-temp=(?:"1"|'1'))[^>]*>/gi;

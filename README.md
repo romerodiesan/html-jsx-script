@@ -4,13 +4,12 @@ Syntax highlighting and formatting for JSX inside HTML script blocks using `type
 
 ## Features
 
-- JSX syntax highlighting inside the **HTML JSX** language mode
-- Support for `<script type="jsx">`
+- JSX syntax highlighting inside `<script type="jsx">` blocks in regular `.html` files
+- Support for `<script type="jsx">`, `<script type="text/jsx">`, and `<script type="text/babel">`
 - Built-in **Format Document** support powered by Prettier
 - **Format Selection** support
 - Snippets for JSX script blocks and React patterns
 - Commands to convert between `text/babel` and `jsx`
-- Workspace command to associate `.html` files with `html-jsx`
 
 ## Example
 
@@ -22,33 +21,9 @@ Syntax highlighting and formatting for JSX inside HTML script blocks using `type
 
 ## Usage
 
-### Option 1: Use `.htmljsx`
+Open any `.html` file. The extension activates automatically and highlights JSX inside `<script type="jsx">` blocks.
 
-Create a file with the `.htmljsx` extension.
-
-```txt
-index.htmljsx
-```
-
-The extension will automatically use the **HTML JSX** language mode.
-
-### Option 2: Use regular `.html` files
-
-Open a `.html` file, then run:
-
-```txt
-HTML JSX Script: Enable for .html files in this Workspace
-```
-
-This adds a workspace association for:
-
-```json
-{
-  "files.associations": {
-    "*.html": "html-jsx"
-  }
-}
-```
+No configuration or language mode changes needed.
 
 ### Format Document
 
@@ -82,7 +57,6 @@ It temporarily converts JSX script blocks internally for formatting and restores
 | `HTML JSX Script: Insert JSX Script Block` | Inserts a ready-to-use JSX script block |
 | `HTML JSX Script: Convert text/babel to jsx` | Converts Babel script blocks to JSX script blocks |
 | `HTML JSX Script: Convert jsx to text/babel` | Converts JSX script blocks to Babel script blocks |
-| `HTML JSX Script: Enable for .html files in this Workspace` | Associates `.html` files with `html-jsx` in the current workspace |
 
 ## Snippets
 

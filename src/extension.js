@@ -1,9 +1,5 @@
 const vscode = require("vscode");
-const {
-  formatHtmlJsx,
-  prepareForPrettier,
-  restoreAfterPrettier
-} = require("./formatter");
+const { formatHtmlJsx } = require("./formatter");
 const { registerCommands } = require("./features/commands");
 const { replaceWholeDocument } = require("./core/document");
 const { registerFormattingProviders } = require("./features/formatting/providers");
@@ -36,7 +32,5 @@ function deactivate() {
 
 module.exports = {
   activate,
-  deactivate,
-  prepareForPrettier,
-  restoreAfterPrettier
+  deactivate
 };

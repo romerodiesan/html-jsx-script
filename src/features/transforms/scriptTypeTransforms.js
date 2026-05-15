@@ -1,5 +1,5 @@
 const BABEL_TYPE_PATTERN =
-  /(<script\b[^>]*\btype\s*=\s*)(?:"text\/babel"|'text\/babel'|text\/babel)([^>]*>)/gi;
+  /(<script\b[^>]*\btype\s*=\s*)(?:"text\/babel"|'text\/babel'|text\/babel|"text\/jsx"|'text\/jsx'|text\/jsx)([^>]*>)/gi;
 
 const JSX_TYPE_PATTERN =
   /(<script\b[^>]*\btype\s*=\s*)(?:"jsx"|'jsx'|jsx)([^>]*>)/gi;

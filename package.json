@@ -29,12 +29,7 @@
   ],
   "main": "./src/extension.js",
   "activationEvents": [
-    "onLanguage:html",
-    "onCommand:htmlJsxScript.formatDocument",
-    "onCommand:htmlJsxScript.insertScriptBlock",
-    "onCommand:htmlJsxScript.convertBabelToJsx",
-    "onCommand:htmlJsxScript.convertJsxToBabel",
-    "onCommand:htmlJsxScript.enableHtmlAssociation"
+    "onLanguage:html"
   ],
   "engines": {
     "vscode": "^1.85.0"
