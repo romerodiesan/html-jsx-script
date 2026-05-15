@@ -28,9 +28,6 @@
     "Snippets"
   ],
   "main": "./src/extension.js",
-  "activationEvents": [
-    "onLanguage:html"
-  ],
   "engines": {
     "vscode": "^1.85.0"
   },
